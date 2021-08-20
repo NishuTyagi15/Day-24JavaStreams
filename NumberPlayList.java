@@ -19,7 +19,7 @@ public class NumberPlayList {
 
 
         Function<Integer,Double> toDoubleFunction = Integer::doubleValue;
-        List<Double> doubleList = myList.stream().map(toDoubleFunction).toList();
+        List<Double> doubleList = myList.stream().map(toDoubleFunction).collect(Collectors.toList());
         System.out.println("Double List is: " + doubleList);
     }
 }
