@@ -52,5 +52,12 @@ public class NumberPlayList {
         Integer sum = myList.stream().reduce(0, Integer::sum);
         long count = myList.stream().count();
         System.out.println("Average of " +sum+"/"+count+ " = " +sum/count);
+
+        //All or Atleast one Number is Even
+        boolean allEven = myList.stream().allMatch(isEvenFunction);
+        boolean oneEven = myList.stream().anyMatch(isEvenFunction);
+        boolean noMultiOfSix = myList.stream().noneMatch(i -> i > 0 && i % 6 == 0);
+        System.out.println("All Even: "+ allEven + "\nOne Even: "+oneEven+
+                                  "\nNone Multiple Of Six: " +noMultiOfSix);
     }
 }
