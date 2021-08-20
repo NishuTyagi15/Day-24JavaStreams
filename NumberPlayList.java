@@ -47,5 +47,10 @@ public class NumberPlayList {
                                      .max(Comparator.comparing(Integer::intValue))
                                      .orElse(null);
         System.out.println("Max Even Number: " +max);
+
+        //Sum and Average
+        Integer sum = myList.stream().reduce(0, Integer::sum);
+        long count = myList.stream().count();
+        System.out.println("Average of " +sum+"/"+count+ " = " +sum/count);
     }
 }
