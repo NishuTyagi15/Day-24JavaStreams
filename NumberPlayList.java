@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class NumberPlayList {
     public static void main(String[] args) {
         List<Integer> myList = new ArrayList<Integer>();
-        for(int i = 0; i < 4 ; i++) {
+        for(int i = 0; i < 5 ; i++) {
             myList.add(i);
         }
 
@@ -24,9 +24,15 @@ public class NumberPlayList {
         System.out.println("Double List is: " + doubleList);
 
         //Filter Even Numbers
-        Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
+        Predicate<Integer> isEvenFunction = n -> n > 0 && n % 2 == 0;
 
         List<Integer> evenList = myList.stream().filter(isEvenFunction).collect(Collectors.toList());
         System.out.println("Even Numbers List : " + evenList);
+
+        Integer first = myList.stream().filter(isEvenFunction)
+                              .peek(n -> System.out.println("Peak Even Number : " +n))
+                              .findFirst()
+                              .orElse(null);
+        System.out.println("First Even Number is: " + first);
     }
 }
