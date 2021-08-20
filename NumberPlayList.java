@@ -1,6 +1,7 @@
 package com.javastreamslp;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -34,5 +35,17 @@ public class NumberPlayList {
                               .findFirst()
                               .orElse(null);
         System.out.println("First Even Number is: " + first);
+
+        //Min Even Number
+        Integer min = myList.stream().filter(isEvenFunction)
+                                     .min(Comparator.comparing(Integer::intValue))
+                                     .orElse(null);
+        System.out.println("Min Even Number: " +min);
+
+        //Max Even Number
+        Integer max = myList.stream().filter(isEvenFunction)
+                                     .max(Comparator.comparing(Integer::intValue))
+                                     .orElse(null);
+        System.out.println("Max Even Number: " +max);
     }
 }
