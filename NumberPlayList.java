@@ -2,6 +2,8 @@ package com.javastreamslp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class NumberPlayList {
     public static void main(String[] args) {
@@ -14,5 +16,10 @@ public class NumberPlayList {
         myList.stream().forEach(n ->{
             System.out.println(" Stream For Each Value ::" +n);
         });
+
+
+        Function<Integer,Double> toDoubleFunction = Integer::doubleValue;
+        List<Double> doubleList = myList.stream().map(toDoubleFunction).toList();
+        System.out.println("Double List is: " + doubleList);
     }
 }
